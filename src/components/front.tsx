@@ -1,4 +1,4 @@
-import React, { useEffect, useRef,useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Vscode from './vscode'
 import StartingBox from './startingBox';
 
@@ -27,9 +27,7 @@ function Front({ scrollY }: any) {
 
                 <Vscode scrollY={scrollY} />
 
-                {
-                    putLoading ? <StartingBox /> : (<span></span>)
-                }
+
             </div>
         </div>
     )

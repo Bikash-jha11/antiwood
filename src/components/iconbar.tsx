@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import Intro from './Intro'
 import finder from '../assets/Finder.png'
 import chrome from '../assets/chrome.png'
 import store from '../assets/store.png'
@@ -18,7 +19,7 @@ function Iconbar({ scrollY }: any) {
             iconRef.current.style.transitionDuration = '0.5s'
 
         }
-    },[scrollY])
+    }, [scrollY])
     return (
         <div className='max-w-[340px] h-[70px]  m-auto rounded-xl border-1 border-gray-700 p-2' ref={iconRef}>
             <div className='rounded-xl flex  h-[50px] bg-[#797979]'>

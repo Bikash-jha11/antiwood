@@ -7,9 +7,9 @@ function Video() {
 
             <div className='flex items-center justify-center h-full'>
                 {/* centered div */}
-            <div className='w-xl h-full border-1'>
-                <p>Inside is your infrastructure</p>
-            </div>
+                <div className='w-xl h-full border-1'>
+                    <p>Inside is your infrastructure</p>
+                </div>
             </div>
 
             <div className='absolute bottom-8 left-[40%]'>

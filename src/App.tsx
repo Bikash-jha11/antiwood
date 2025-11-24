@@ -13,11 +13,11 @@ import RenderFirstPage from './render/renderFirstPage'
 function App() {
   return (
     <>
-    <div className=''>
-        <RenderFirstPage/>
-       {/* <Iconbar/> */}
+      <div className=''>
+        <RenderFirstPage />
+        {/* <Iconbar/> */}
         {/* <Test/> */}
-    </div>
+      </div>
     </>
   )
 }
