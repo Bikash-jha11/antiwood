@@ -1,16 +1,23 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import Navbar from './components/navbar'
+import Front from './components/front'
+import Iconbar from './components/Iconbar'
+
+import Test from './components/Test'
+import Video from './components/video'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
 
+import RenderFirstPage from './render/renderFirstPage'
+
+function App() {
   return (
     <>
-      <div>
-        <p>hi </p>
-      </div>
+    <div className=''>
+        <RenderFirstPage/>
+       {/* <Iconbar/> */}
+        {/* <Test/> */}
+    </div>
     </>
   )
 }
