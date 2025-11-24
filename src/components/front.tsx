@@ -1,20 +1,23 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef,useState } from 'react'
 import Vscode from './vscode'
+import StartingBox from './startingBox';
 
 function Front({ scrollY }: any) {
     const textRef = useRef(null);
+    const [putLoading, setPutLoading] = useState(false);
 
     useEffect(() => {
 
         if (scrollY >= 30) {
             textRef.current.style.transform = `translateY(${-200}px)`;
             textRef.current.style.transitionDuration = '0.5s'
+            setPutLoading(true)
         }
     }, [scrollY])
 
 
     return (
-        <div className='sticky w-full h-screen'>
+        <div className='w-full h-screen'>
             {/* centered div */}
             <div className='min-w-3xl h-full  flex flex-col justify-center items-center gap-8 p-8'>
                 {/* tagline */}
@@ -23,6 +26,10 @@ function Front({ scrollY }: any) {
                 </div>
 
                 <Vscode scrollY={scrollY} />
+
+                {
+                    putLoading ? <StartingBox /> : (<span></span>)
+                }
             </div>
         </div>
     )

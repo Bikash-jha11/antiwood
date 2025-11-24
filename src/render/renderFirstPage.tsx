@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import Navbar from '@/components/navbar'
 import Front from '@/components/front'
 import Iconbar from '@/components/Iconbar';
+import StartingBox from '@/components/startingBox';
 
 
 
@@ -17,7 +18,7 @@ function RenderFirstPage() {
     }, [scrollY])
     return (
         <>
-            <div className='h-screen border-1 overflow-hidden overflow-y-auto' ref={ref}>
+            <div className='relative h-screen border-1 overflow-hidden overflow-y-auto' ref={ref}>
                 <Navbar />
                 <Front scrollY={scrollY} />
                 <Iconbar scrollY={scrollY} />

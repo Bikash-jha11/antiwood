@@ -26,6 +26,7 @@
   --color-gray-300: color(display-p3 0.6941 0.698 0.698);
   --color-gray-200: color(display-p3 0.8235 0.8235 0.8275);
   --color-gray-100: color(display-p3 0.9529 0.9529 0.9569);
+  --color-badge: #353935;
 }
 
 body {
