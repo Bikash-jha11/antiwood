@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Navbar from './components/navbar'
 import Front from './components/front'
 import Iconbar from './components/Iconbar'
@@ -9,14 +9,22 @@ import './App.css'
 
 
 import RenderFirstPage from './render/renderFirstPage'
+import RenderSecondPage from './render/renderSecondPage'
 
 function App() {
+
+
+
+
   return (
     <>
       <div className=''>
-        <RenderFirstPage />
-        {/* <Iconbar/> */}
-        {/* <Test/> */}
+        <div className='absolute'>
+          <RenderFirstPage />
+        </div>
+        <div className='absolute hidden'>
+          <RenderSecondPage />
+        </div>
       </div>
     </>
   )

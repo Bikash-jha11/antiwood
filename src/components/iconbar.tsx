@@ -6,9 +6,10 @@ import store from '../assets/store.png'
 import terminal from '../assets/terminal.png'
 import cursor from '../assets/kuber.png'
 import slack from '../assets/slack.png'
+import Video from './video'
 
 
-function Iconbar({ scrollY }: any) {
+function Iconbar({ scrollY}: any) {
     const iconRef = useRef(null);
 
 
@@ -21,7 +22,7 @@ function Iconbar({ scrollY }: any) {
         }
     }, [scrollY])
     return (
-        <div className='max-w-[340px] h-[70px]  m-auto rounded-xl border-1 border-gray-700 p-2' ref={iconRef}>
+        <div className='relative max-w-[340px] h-[70px]  m-auto rounded-xl border-1 border-gray-700 p-2' ref={iconRef}>
             <div className='rounded-xl flex  h-[50px] bg-[#797979]'>
                 <div className='flex justify-between w-full p-[1px]'>
                     <img src={finder} ></img>
@@ -32,8 +33,6 @@ function Iconbar({ scrollY }: any) {
                     <img src={store} className='scale-80'></img>
                 </div>
             </div>
-
-
         </div>
     )
 }

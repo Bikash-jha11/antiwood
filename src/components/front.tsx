@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import Vscode from './vscode'
 import StartingBox from './startingBox';
 
-function Front({ scrollY }: any) {
+function Front({ scrollY,buttom  }: any) {
     const textRef = useRef(null);
     const [putLoading, setPutLoading] = useState(false);
 
@@ -25,7 +25,7 @@ function Front({ scrollY }: any) {
                     <p className='text-[52px]  font-normal leading-14' ref={textRef}>It has never been easier to build frontend </p>
                 </div>
 
-                <Vscode scrollY={scrollY} />
+                <Vscode scrollY={scrollY} buttom={buttom}/>
 
 
             </div>

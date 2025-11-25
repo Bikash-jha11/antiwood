@@ -6,7 +6,7 @@ import StartingBox from './startingBox';
 
 
 
-function Vscode({ scrollY }: any) {
+function Vscode({ scrollY,buttom }: any) {
     const vsRef = useRef(null);
 
     useEffect(() => {
@@ -43,7 +43,7 @@ function Vscode({ scrollY }: any) {
 
             </div>
             {
-                scrollY >= 30 ? <StartingBox vsRef={vsRef} /> : (<span></span>)
+                scrollY >= 30 ? <StartingBox vsRef={vsRef} buttom={buttom} /> : (<span></span>)
 
             }
         </>

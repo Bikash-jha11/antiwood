@@ -2,13 +2,18 @@ import React, { useEffect, useState, useRef } from 'react'
 import { AlertCircleIcon, BadgeCheckIcon, CheckIcon } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 
-import Intro from './Intro';
 
-function StartingBox({ vsRef }: any) {
+import Intro from './Intro';
+import Video from './video';
+
+function StartingBox({ vsRef, buttom }: any) {
     const [message, setMessage] = useState('Starting....');
     const [isloaded, setIsLoaded] = useState(false);
+    const [animationEnd, setAnimationEnd] = useState(false);
+    const[showNextPage,setShowNextPage] = useState(false);
 
     const ref = useRef(null);
+    const introRef = useRef(null);
 
 
     useEffect(() => {
@@ -22,7 +27,17 @@ function StartingBox({ vsRef }: any) {
             ref.current.style.transform = `translateY(${-1000}px)`;
         }
 
-    }, [message]);
+        if (buttom && animationEnd) {
+            //not good approach but working change later
+            //it delays so that animation can be completed its not synchronized
+            setTimeout(() => {
+                introRef.current.style.transform = `translateY(${-1000}px)`;
+                introRef.current.style.transitionDuration = '0.5s'
+                setShowNextPage(true);
+            }, 2000);
+        }
+
+    }, [message, animationEnd]);
 
 
     return (
@@ -35,9 +50,16 @@ function StartingBox({ vsRef }: any) {
             </div>
 
             {
-                isloaded ? (<Intro />) : (<p></p>)
-
+                isloaded ? (
+                    <div className='flex items-center justify-center' ref={introRef}>
+                        <Intro onAnimationEnd={() => setAnimationEnd(true)} />
+                    </div>) : (<p></p>)
             }
+
+            {
+                showNextPage ? (<Video/>) : (<span></span>)
+            }
+
         </>
     )
 }
