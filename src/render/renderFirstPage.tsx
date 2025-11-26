@@ -5,7 +5,7 @@ import Intro from '@/components/Intro';
 import Iconbar from '@/components/Iconbar';
 import StartingBox from '@/components/startingBox';
 import Video from '@/components/video';
-import RenderSecondPage from './renderSecondPage';
+
 
 
 
@@ -31,7 +31,7 @@ function RenderFirstPage() {
 
     return (
         <>
-            <div className='relative h-screen w-screen border-1 overflow-hidden overflow-y-auto' ref={ref}>
+            <div className='relative h-screen w-screen  overflow-hidden overflow-y-auto' ref={ref}>
                 <Navbar />
                 <Front scrollY={scrollY} buttom={buttom} />
                 <Iconbar scrollY={scrollY}/>
