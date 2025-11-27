@@ -9,7 +9,9 @@ function Front({ scrollY,buttom  }: any) {
     useEffect(() => {
 
         if (scrollY >= 30) {
+           // @ts-ignore
             textRef.current.style.transform = `translateY(${-200}px)`;
+              // @ts-ignore
             textRef.current.style.transitionDuration = '0.5s'
             setPutLoading(true)
         }

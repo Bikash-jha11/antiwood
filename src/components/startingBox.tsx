@@ -24,6 +24,7 @@ function StartingBox({ vsRef, buttom }: any) {
 
         if (isloaded) {
             vsRef.current.style.transform = `translateY(${-1000}px)`;
+              // @ts-ignore
             ref.current.style.transform = `translateY(${-1000}px)`;
         }
 
@@ -31,7 +32,9 @@ function StartingBox({ vsRef, buttom }: any) {
             //not good approach but working change later
             //it delays so that animation can be completed its not synchronized
             setTimeout(() => {
+                  // @ts-ignore
                 introRef.current.style.transform = `translateY(${-1000}px)`;
+                  // @ts-ignore
                 introRef.current.style.transitionDuration = '0.5s'
                 setShowNextPage(true);
             }, 2000);

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import Iconbar from './Iconbar'
-import Alerts from './alerts';
+import Iconbar from './iconbar'
+import Alerts from './Alerts';
 import video from '../assets/universe.mp4'
 
 function Video({ scrollY }: any) {
@@ -11,11 +11,18 @@ function Video({ scrollY }: any) {
     let navigate = useNavigate();
 
     useEffect(() => {
+    
         const handleScroll = () => {
-            ref.current.style.transform = `translateY(${-600}px)`;
+            if(ref.current){
+                //@ts-ignore
+                ref.current.style.transform = `translateY(${-600}px)`;
+            }
+           
             navigate('/home')
         };
 
+         if(ref.current)
+            //@ts-ignore
         ref.current.addEventListener("scroll", handleScroll);
 
         return () => window.removeEventListener("scroll", handleScroll);

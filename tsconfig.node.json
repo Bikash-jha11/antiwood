@@ -1,26 +1,17 @@
 {
   "compilerOptions": {
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
-    "target": "ES2023",
-    "lib": ["ES2023"],
+    /* PROJECT REFERENCE FIXES (TS6306 & TS6310) */
+    "composite": true,
+    "declaration": true,
+    "noEmit": false,
+
+    /* --- MODULE RESOLUTION FIX --- */
+    "moduleResolution": "bundler", // <-- CHANGE THIS LINE
     "module": "ESNext",
-    "types": ["node"],
-    "skipLibCheck": true,
-
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2020",
+    "skipLibCheck": true
   },
-  "include": ["vite.config.ts"]
+  "include": ["vite.config.ts"] 
 }

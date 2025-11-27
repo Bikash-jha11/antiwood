@@ -1,37 +1,3 @@
-// import { useState, useRef, useEffect } from 'react'
-// import Navbar from './components/navbar'
-// import Front from './components/front'
-// import Iconbar from './components/Iconbar'
-
-// import { BrowserRouter,Routes,Route } from 'react-router-dom'
-
-// import Test from './components/Test'
-// import Video from './components/video'
-// import './App.css'
-
-
-// import RenderFirstPage from './render/renderFirstPage'
-// import Home from './components/Home'
-// import SecondPage from './components/secondPage'
-
-
-// function App() {
-
-//   return (
-//     <>
-//     <BrowserRouter>
-//     <Routes>
-//        <Route  path ='/' Component={RenderFirstPage}></Route>
-//        <Route  path ='/home' Component={Home}></Route>
-//        <Route path ='/second' Component={SecondPage}></Route>
-//     </Routes>
-//     </BrowserRouter>
-
-//     </>
-//   )
-// }
-
-// export default App
 
 
 
@@ -39,11 +5,10 @@ import React, { useState, useRef, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import Navbar from './components/navbar'
 import Front from './components/front'
-import Iconbar from './components/Iconbar'
 
 
 
-import Test from './components/Test'
+
 import Video from './components/video'
 import './App.css'
 
@@ -103,7 +68,7 @@ const useScrollToNavigate = () => {
 };
 
 // --- 2. Scroll Handler Component (to access router context) ---
-const ScrollToHomeHandler = ({ children }) => {
+const ScrollToHomeHandler = ({ children }:any) => {
   useScrollToNavigate();
   return <>{children}</>;
 };

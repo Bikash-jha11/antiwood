@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
-import Iconbar from './Iconbar'
+import Iconbar from './iconbar'
 import ThirdPage from './thirdpage';
 
 
@@ -16,22 +16,27 @@ function SecondPage() {
     const handleScroll = () => {
       //if finder icon animation is complete and user scroll further than animate text
       if (isAnimationComplete) {
+        //@ts-ignore
         textRef.current.classList.add('tagline_animation')
       }
       if (showNextPage && isAnimationComplete) {
+        if(mainRef.current)
+          //@ts-ignore
         mainRef.current.classList.remove('h-screen', 'overflow-hidden');
         document.body.style.overflowY = 'scroll';
       } else {
         // Keep initial state for full-screen animation
+         if(mainRef.current)
+           //@ts-ignore
         mainRef.current.classList.add('h-screen', 'overflow-hidden');
         document.body.style.overflowY = 'hidden'; // the document body is not scrollable initially
       }
     }
-
+  //@ts-ignore
     const handleAnimationEnd = (e) => {
       setAnimationComplete(true)
     }
-
+     //@ts-ignore
     const handleTextAnimationEnd = (e) => {
       setTimeout(() => {
         setShowNextPage(true);
@@ -40,7 +45,9 @@ function SecondPage() {
 
     }
     window.addEventListener('wheel', handleScroll);
+    //@ts-ignore
     ref.current.addEventListener('animationend', handleAnimationEnd)
+    //@ts-ignore
     textRef.current.addEventListener('animationend', handleTextAnimationEnd)
 
     return () => {

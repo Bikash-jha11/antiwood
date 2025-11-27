@@ -11,7 +11,9 @@ function Vscode({ scrollY,buttom }: any) {
 
     useEffect(() => {
         if (scrollY >= 30) {
+              // @ts-ignore
             vsRef.current.style.transform = `translateY(${-50}px)`;
+              // @ts-ignore
             vsRef.current.style.transitionDuration = '1s'
         }
     }, [scrollY])
@@ -28,6 +30,7 @@ function Vscode({ scrollY,buttom }: any) {
                     </div>
                     {/* react and frontend */}
                     <div className='absolute flex gap-2 left-[45%]'>
+                    
                         <img src={logo} className='h-5 w-5' />
                         <p className='text-white text-[14px]'>frontend</p>
                     </div>

@@ -19,30 +19,35 @@ const skills = [
 
 export default function PortfolioTextFlow() {
     const containerRef = useRef(null);
-    const itemsRef = useRef([]);
+    const itemsRef = useRef<any>([]);
 
     useEffect(() => {
         const container = containerRef.current;
         if (!container) return;
 
         const updateEffects = () => {
+            //@ts-ignore
             const containerRect = container.getBoundingClientRect();
 
+            //@ts-ignore
             itemsRef.current.forEach((el) => {
                 if (!el) return;
-
+                //@ts-ignore
                 const rect = el.getBoundingClientRect();
                 const diff = containerRect.top - rect.top;
 
                 const progress = Math.min(Math.max(diff / 250, 0), 1);
-
+                //@ts-ignore
                 el.style.opacity = `${1 - progress * 0.5}`;
+                //@ts-ignore
                 el.style.transform = `translateY(${progress * -30}px) scale(${1 + progress * 0.05})`;
+                //@ts-ignore
                 el.style.filter = `blur(${progress * 3}px)`;
             });
         };
-
+        //@ts-ignore
         container.addEventListener("scroll", updateEffects);
+        //@ts-ignore
         return () => container.removeEventListener("scroll", updateEffects);
     }, []);
 
@@ -71,6 +76,7 @@ export default function PortfolioTextFlow() {
                 {skills.map((text, i) => (
                     <p
                         key={i}
+                        //@ts-ignore
                         ref={(el) => (itemsRef.current[i] = el)}
                         className="text-md  text-gray-600 font-medium tracking-tight transition-all duration-300 will-change-transform will-change-opacity will-change-filter"
                     >

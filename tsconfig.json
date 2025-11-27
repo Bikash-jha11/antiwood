@@ -1,13 +1,35 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ],
   "compilerOptions": {
-    "baseUrl": ".",
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Module Resolution Fixes */
+    "moduleResolution": "node",
+    "allowImportingTsExtensions": false, // Fixes TS5097 for .tsx imports
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true, // The application config shouldn't emit JS files
+    "jsx": "react-jsx",
+    
+    /* Interop & Casing Fixes */
+    "strict": true,
+    "esModuleInterop": true, // Fixes TS1259 for React default imports
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true, // Fixes TS1261 and prevents casing issues on Vercel
+
+    /* Path Aliases Fixes */
+    "baseUrl": "./",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"] // Fixes TS2307 for all '@/...' imports
     }
-  }
+  },
+  "include": ["src"],
+  "references": [
+    { 
+      "path": "./tsconfig.node.json" // Points to the build config
+    }
+  ]
 }

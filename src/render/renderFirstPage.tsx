@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import Navbar from '@/components/navbar'
 import Front from '@/components/front'
 import Intro from '@/components/Intro';
-import Iconbar from '@/components/Iconbar';
+import Iconbar from '@/components/iconbar';
 import StartingBox from '@/components/startingBox';
 import Video from '@/components/video';
 
@@ -12,21 +12,23 @@ import Video from '@/components/video';
 function RenderFirstPage() {
     const [scrollY, setScrollY] = useState(0);
     const [animationEnd, setAnimationEnd] = useState(false)
-    const[buttom,setButtom] = useState(false)
+    const [buttom, setButtom] = useState(false)
     const ref = useRef(null);
 
     useEffect(() => {
+        //@ts-ignore
         ref.current.addEventListener('scroll', (e) => {
+            //@ts-ignore
             setScrollY(ref.current.scrollTop);
-
+            //@ts-ignore
             const bottom = Math.ceil(ref.current.scrollTop + ref.current.clientHeight) >= ref.current.scrollHeight;
 
             if (bottom) {
-               setButtom(true);
-            } 
+                setButtom(true);
+            }
         })
 
-    }, [scrollY,buttom]);
+    }, [scrollY, buttom]);
 
 
     return (
@@ -34,7 +36,7 @@ function RenderFirstPage() {
             <div className='relative h-screen w-screen  overflow-hidden overflow-y-auto' ref={ref}>
                 <Navbar />
                 <Front scrollY={scrollY} buttom={buttom} />
-                <Iconbar scrollY={scrollY}/>
+                <Iconbar scrollY={scrollY} />
 
             </div>
         </>

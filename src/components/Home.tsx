@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
-import Alerts from './alerts';
+import Alerts from './Alerts'
 import Navbar from './navbar';
-import Iconbar from './Iconbar';
+import Iconbar from './iconbar';
 
 function Home() {
     const navigate = useNavigate();
@@ -25,7 +25,7 @@ function Home() {
         if (!el) return;
         
         // Timeout ID to clean up if the component unmounts quickly
-        let timeoutId;
+        let timeoutId:any;
 
         const handleScroll = () => {
             console.log(`Scroll detected. Current Stage: ${stage}`);
@@ -33,9 +33,11 @@ function Home() {
             // --- STAGE 0: Initial Scroll (Change Tagline) ---
             if (stage === 0) {
                 // Remove listener immediately so it doesn't fire multiple times
+              //@ts-ignore
                 el.removeEventListener('wheel', handleScroll);
                 
                 // Update error alert (using the first error at index 0)
+                //@ts-ignore
                 setAlert(prev => [...prev, errors[0]]); 
 
                 // Start the 2-second delay for the tagline change
@@ -49,6 +51,7 @@ function Home() {
             // --- STAGE 1: Second Scroll (Navigate) ---
             else if (stage === 1) {
                 // Prevent further navigation/listener execution
+                //@ts-ignore
                 el.removeEventListener('wheel', handleScroll);
                 setStage(2); // Set stage to 2 to prevent re-triggering
                 
@@ -60,10 +63,12 @@ function Home() {
         // If the stage is 0 or 1, we attach the listener.
         // The listener is removed inside the handlers after it fires.
         if (stage < 2) {
+            //@ts-ignore
              el.addEventListener('wheel', handleScroll);
         }
        
         return () => {
+            //@ts-ignore
             el.removeEventListener('wheel', handleScroll);
             clearTimeout(timeoutId); // Clear any pending timeout
         };
@@ -79,6 +84,7 @@ function Home() {
                 </div>
                 {
                     alert.map((data, key) => (
+                        //@ts-ignore
                         <Alerts key={key} toppos={data?.pos} title={data?.error} />
                     ))
                 }

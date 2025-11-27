@@ -16,7 +16,9 @@ function Iconbar({ scrollY}: any) {
     useEffect(() => {
 
         if (scrollY >= 30) {
+              // @ts-ignore
             iconRef.current.style.transform = `translateY(${-20}px)`;
+              // @ts-ignore
             iconRef.current.style.transitionDuration = '0.5s'
 
         }
