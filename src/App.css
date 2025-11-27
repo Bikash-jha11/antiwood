@@ -238,7 +238,7 @@
 }
 
 
-.main_div{
+.main_div {
   position: absolute;
   height: 50px;
   width: 50px;
@@ -255,7 +255,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
 
-  
+
 
   animation: finder_animation 1s linear 2s forwards;
 }
@@ -273,7 +273,7 @@
   /* move UP 200px */
   100% {
     transform: translate(-50%, calc(-50% - 350px));
-       z-index: 10;
+    z-index: 10;
   }
 
   /* move LEFT from that same UP position
@@ -284,26 +284,28 @@
 
 
 
-.tagline_animation{
+.tagline_animation {
   animation: tagline_animate 250ms linear forwards;
 }
 
 @keyframes tagline_animate {
-   from{
-       transform: translateY(0px);
-   }to{
-       transform: translateY(-43px);
-   }
+  from {
+    transform: translateY(0px);
+  }
+
+  to {
+    transform: translateY(-43px);
+  }
 }
 
-  /* svg{ 
+/* svg{ 
         width:1450px;
         height:300;
         viewBox:0 0 1500 300;
       
     } */
 
-    /* //fix later */
+/* //fix later */
 /* .dottedText::after
 {
   content: '';
@@ -315,10 +317,191 @@
   background: radial-gradient(circle, transparent 50%, transparent 50%), radial-gradient(circle, transparent 20%, white 50%) 30px 30px;
   background-size: .1em .1em;
 } */
-.gradient1{
+.gradient1 {
   background: #fffcf7;
-background: linear-gradient(0deg, rgba(255, 252, 247, 1) 26%, rgba(219, 219, 20, 1) 32%, rgba(237, 129, 21, 1) 64%, rgba(155, 222, 22, 1) 87%, rgba(10, 10, 10, 1) 99%);
+  background: linear-gradient(0deg, rgba(255, 252, 247, 1) 26%, rgba(219, 219, 20, 1) 32%, rgba(237, 129, 21, 1) 64%, rgba(155, 222, 22, 1) 87%, rgba(10, 10, 10, 1) 99%);
 }
-.dotted{
-      font-family: DMTLLVIPWeb-Regular, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+
+.dotted {
+  font-family: DMTLLVIPWeb-Regular, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+}
+
+
+.metric-wrapper {
+    view-timeline-name: --metricTimeline;
+    view-timeline-axis: block;
+}
+
+/* Animate only when wrapper enters screen */
+.metric {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0.00) 100%), #E5E5E5;
+    animation: metric_animation 1500ms linear alternate infinite;
+    animation-timeline: view();
+
+    
+}
+
+@keyframes metric_animation {
+    from { width: 250px; }
+    to { width: 420px; }
+}
+
+
+.inner_metric {
+  animation: innermetric_animation 2s linear infinite;
+
+}
+
+@keyframes innermetric_animation {
+   from{
+    color:black;
+   }
+  to {
+         color: rgb(4 ,143 ,66);
+    }
+}
+
+/* Container for centering */
+.loader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* The core loader element */
+.circular-loader {
+  /* Size and Shape (Equivalent to w-6 h-6 rounded-full) */
+  width: 24px;
+  /* Adjust size as needed */
+  height: 24px;
+  border-radius: 50%;
+  /* Make it a perfect circle */
+
+  /* Border Styles (Equivalent to border-4 border-gray-200) */
+  border: 4px solid #e5e7eb;
+  /* Light gray for the static part of the ring */
+
+  /* The Moving Segment (Equivalent to border-t-indigo-500) */
+  border-top: 4px solid #6366f1;
+  /* A distinct color for the moving part */
+
+  /* The Spinning Animation (Equivalent to animate-spin) */
+  animation: spin 1s linear infinite;
+}
+
+/* Define the spinning motion */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Utility to hide text visually but keep it for screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.lookup{
+  background: radial-gradient(50.95% 55.15%, rgba(0, 0, 0, 0.04) 0%, rgba(0, 0, 0, 0) 100%), linear-gradient(rgba(255, 255, 255, 0.52) 0%, rgba(255, 255, 255, 0) 100%), rgba(0, 0, 0, 0.08);
+  box-shadow: rgba(255, 255, 255, 0.16) 0px -0.5px 0.5px 0px inset, rgba(255, 255, 255, 0.24) 0px -1px 2px 0px inset, rgba(255, 255, 255, 0.16) 0px -28px 24px 0px inset, rgba(255, 255, 255, 0.16) 0px 4px 16px 0px inset, rgba(255, 255, 255, 0.12) 0px 0.75px 0.25px 0px inset, rgba(255, 255, 255, 0.32) 0px 0.25px 0.25px 0px inset, rgba(0, 0, 0, 0.06) 0px 24px 32px 0px, rgba(0, 0, 0, 0.02) 0px 12px 24px 0px, rgba(0, 0, 0, 0.03) 0px 4px 8px 0px, rgba(0, 0, 0, 0.03) 0px 2px 4px 0px, rgba(0, 0, 0, 0.04) 0px 0.5px 0.5px 0px;
+}
+
+.glass-tab-container {
+  position: relative;
+  /* padding: 8px; */
+  display: inline-block;
+}
+
+.glass-tab {
+  display: flex;
+  padding-top: 3px;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+  border-radius: 40px;
+  /* padding: 6px; */
+  gap: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.glass-tab-btn {
+  position: relative;
+  padding: 8px 24px;
+  border-radius: 40px;
+  font-size: 14px;
+  color: #777;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.glass-tab-btn.active {
+  color: #c44; /* text becomes reddish like your screenshot */
+}
+
+.indicator {
+  position: absolute;
+  inset: 0;
+  border-radius: 40px;
+  background: rgba(255, 144, 144, 0.35);
+  box-shadow: 0 0 12px rgba(255, 90, 90, 0.45);
+  z-index: -1;
+  animation: fadeIn 0.25s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes blob {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+}
+
+/* Keyframes for the initial text fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tailwind Classes for the custom animations */
+.animate-blob {
+  animation: blob 7s infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.animate-fade-in {
+  animation: fadeIn 5.5s ease-out forwards;
 }
