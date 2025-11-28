@@ -205,14 +205,14 @@
   }
 
   80% {
-    filter: blur(2px);
+    filter: blur(1px);
   }
 
   100% {
 
     transform: translateY(-300px) scale(3);
-    filter: blur(1);
-    opacity: 0.8;
+   
+
   }
 }
 
@@ -270,9 +270,9 @@
     z-index: 10;
   }
 
-  /* move UP 200px */
+  /* move UP 400px */
   100% {
-    transform: translate(-50%, calc(-50% - 350px));
+    transform: translate(-50%, calc(-50% - 450px));
     z-index: 10;
   }
 
